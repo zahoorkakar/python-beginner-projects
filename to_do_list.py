@@ -28,7 +28,7 @@ def loading_file():
              
 def add_task():
     
-    new_task =input('enter the task to add :').lower()
+    new_task =input('enter the task to add :').lower().strip()  # use strip to avoid empty input or input with spaces
     while new_task.isdigit():
         print('enter valid task not number') 
         new_task=input('enter a valid task to add').lower()
