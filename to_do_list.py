@@ -75,7 +75,7 @@ def main():
      try:
         choice=int(input('enter the choice :'))
         if choice==1:
-            add_task()
+            add_task()  
         elif choice ==2:
             view_task()
         elif choice ==3:
@@ -84,10 +84,10 @@ def main():
             break 
         else:
             print('invalid choice\njust these 1. 2. 3. 4. choices are available')
-      except ValueError:
+     except ValueError:
          print("please enter a valid choice")
          continue
          
-        saved_file()    
+     saved_file()    
     
 main()
