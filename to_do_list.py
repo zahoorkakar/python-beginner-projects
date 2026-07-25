@@ -72,6 +72,7 @@ def delete_task():
 def main():
     loading_file()
     while True:
+     try:
         choice=int(input('enter the choice :'))
         if choice==1:
             add_task()
@@ -83,6 +84,10 @@ def main():
             break 
         else:
             print('invalid choice\njust these 1. 2. 3. 4. choices are available')
+      except ValueError:
+         print("please enter a valid choice")
+         continue
+         
         saved_file()    
     
 main()
