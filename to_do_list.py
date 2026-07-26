@@ -8,8 +8,9 @@ print("""
 
 1. add task
 2. view task
-3. delete task
-4. exit
+3. edit task
+4. delete task
+5. exit
 """)
 
 tasks = []
@@ -48,6 +49,23 @@ def view_task():
         print('--here are your tasks to do :')
         for index, tsk  in  enumerate(tasks,start=1):
             print(f"{index}. {tsk}")
+def edit_task():
+  while True:
+    try:
+        edit =int(input('enter the index of task you want to edit '))-1
+    except ValueError:
+        print('please enter the index of the task, nothing else')
+        continue
+    
+    edited=input('edit it as you want ')
+
+    if not tasks :
+        print('nothing in list yet')
+    elif edit <1 and edit >len(tasks):
+        print('please enter a valid index')
+    else:
+        tasks[edit]=edited
+        break
 
 def delete_task():
     add_del_task=input('enter the task you want to remove :').lower()
@@ -79,11 +97,13 @@ def main():
         elif choice ==2:
             view_task()
         elif choice ==3:
-            delete_task()
+            edit_task()
         elif choice ==4:
+            delete_task()
+        elif choice ==5:
             break 
         else:
-            print('invalid choice\njust these 1. 2. 3. 4. choices are available')
+            print('invalid choice\njust these 1. 2. 3. 4. 5. choices are available')
      except ValueError:
          print("please enter a valid choice")
          continue
