@@ -51,21 +51,23 @@ def view_task():
             print(f"{index}. {tsk}")
 def edit_task():
   while True:
+    if not tasks :
+            print('nothing in list yet')
+            break
     try:
         edit =int(input('enter the index of task you want to edit '))-1
     except ValueError:
         print('please enter the index of the task, nothing else')
         continue
     
+    if edit <0 or edit >=len(tasks):
+        print('please enter a valid number')
+        continue
+    
     edited=input('edit it as you want ')
-
-    if not tasks :
-        print('nothing in list yet')
-    elif edit <1 and edit >len(tasks):
-        print('please enter a valid index')
-    else:
-        tasks[edit]=edited
-        break
+    tasks[edit]=edited
+    print("--- tasks are seccecfully edited")
+    break
 
 def delete_task():
     add_del_task=input('enter the task you want to remove :').lower()
